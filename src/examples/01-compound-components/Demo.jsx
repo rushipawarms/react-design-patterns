@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 /**
  * COMPOUND COMPONENTS PATTERN
@@ -47,7 +47,7 @@ function AccordionItem({ id, title, children }) {
     <div className="acc-item">
       <div className="acc-header" onClick={() => toggle(id)}>
         <span>{title}</span>
-        <span>{isOpen ? '−' : '+'}</span>
+        <span>{isOpen ? "−" : "+"}</span>
       </div>
       {isOpen && <div className="acc-body">{children}</div>}
     </div>
@@ -59,37 +59,56 @@ function AccordionItem({ id, title, children }) {
 Accordion.Item = AccordionItem;
 
 export default function CompoundComponentsDemo() {
+  // return (
+  //   <div>
+  //     <h3 style={{ marginTop: 0 }}>Single-open accordion (default)</h3>
+  //     <Accordion>
+  //       <Accordion.Item id="a" title="What is a compound component?">
+  //         A parent manages shared state internally; children declared as
+  //         properties of the parent (Accordion.Item) read that state through
+  //         context, with no props passed manually by the consumer.
+  //       </Accordion.Item>
+  //       <Accordion.Item id="b" title="Why not just pass an items array?">
+  //         An array prop forces every item to look the same. Composing JSX
+  //         children lets each item render arbitrary, different content —
+  //         forms, images, nested components — while state stays centralized.
+  //       </Accordion.Item>
+  //       <Accordion.Item id="c" title="Real-world examples?">
+  //         Radix UI and Headless UI's Tabs/Accordion/Menu components are all
+  //         built this way — that's why you write &lt;Tabs.Root&gt;,
+  //         &lt;Tabs.List&gt;, &lt;Tabs.Trigger&gt; etc.
+  //       </Accordion.Item>
+  //     </Accordion>
+
+  //     <h3>Multi-open accordion (same component, one prop changed)</h3>
+  //     <Accordion allowMultiple>
+  //       <Accordion.Item id="x" title="Can multiple panels stay open?">
+  //         Yes — the allowMultiple prop changes only the parent's toggle
+  //         logic. Accordion.Item didn't change at all.
+  //       </Accordion.Item>
+  //       <Accordion.Item id="y" title="Does this scale to deeply nested UI?">
+  //         Yes, because each item only needs its own id; the parent context
+  //         handles bookkeeping no matter how many items you nest.
+  //       </Accordion.Item>
+  //     </Accordion>
+  //   </div>
+  // );
   return (
     <div>
       <h3 style={{ marginTop: 0 }}>Single-open accordion (default)</h3>
       <Accordion>
-        <Accordion.Item id="a" title="What is a compound component?">
-          A parent manages shared state internally; children declared as
-          properties of the parent (Accordion.Item) read that state through
-          context, with no props passed manually by the consumer.
-        </Accordion.Item>
-        <Accordion.Item id="b" title="Why not just pass an items array?">
-          An array prop forces every item to look the same. Composing JSX
-          children lets each item render arbitrary, different content —
-          forms, images, nested components — while state stays centralized.
-        </Accordion.Item>
-        <Accordion.Item id="c" title="Real-world examples?">
-          Radix UI and Headless UI's Tabs/Accordion/Menu components are all
-          built this way — that's why you write &lt;Tabs.Root&gt;,
-          &lt;Tabs.List&gt;, &lt;Tabs.Trigger&gt; etc.
-        </Accordion.Item>
-      </Accordion>
-
-      <h3>Multi-open accordion (same component, one prop changed)</h3>
-      <Accordion allowMultiple>
-        <Accordion.Item id="x" title="Can multiple panels stay open?">
-          Yes — the allowMultiple prop changes only the parent's toggle
-          logic. Accordion.Item didn't change at all.
-        </Accordion.Item>
-        <Accordion.Item id="y" title="Does this scale to deeply nested UI?">
-          Yes, because each item only needs its own id; the parent context
-          handles bookkeeping no matter how many items you nest.
-        </Accordion.Item>
+        <Accordion.Item
+          id="a"
+          title="What is a compound component?"
+        ></Accordion.Item>
+        <Accordion.Item
+          id="b"
+          title="Why not just pass an items array?"
+        ></Accordion.Item>
+        <Accordion.Item
+          id="c"
+          title="Real-world examples?"
+        ></Accordion.Item>
       </Accordion>
     </div>
   );
