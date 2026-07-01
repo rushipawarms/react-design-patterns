@@ -58,7 +58,8 @@ function Profile({ name }) {
 }
 
 // stack both HOCs — order matters: logging wraps the guarded component
-const GuardedProfile = withLogging(withAuthGuard(Profile), 'GuardedProfile');
+//const GuardedProfile = withLogging(withAuthGuard(Profile), 'GuardedProfile');mutilple Component stacked or combined together.
+const GuardedProfile = withAuthGuard(Profile);
 
 export default function HOCDemo() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

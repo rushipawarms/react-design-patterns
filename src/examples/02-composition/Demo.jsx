@@ -69,10 +69,12 @@ export default function CompositionDemo() {
       {/* Usage 3: nesting Panels inside Panels — composition all the way down */}
       <div style={{ flex: '1 1 220px' }}>
         <Panel header="Nested panels">
+          <StatRow label="Storage used" value="42 GB" />
           <Panel header="Inner panel">
             <p className="small" style={{ margin: 0 }}>
               Panel doesn't care that it's inside another Panel — composition
               means components don't need to know their context.
+              
             </p>
           </Panel>
         </Panel>
